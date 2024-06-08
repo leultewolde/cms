@@ -4,7 +4,7 @@ info:
   description: API for Content Management System
   version: 1.0.0
 servers:
-  - url: http://localhost:8080/api
+  - url: http://localhost:8080/api/v1
 paths:
   /users:
     post:
@@ -22,6 +22,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserResponse'
+    get:
+      summary: Get all users
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserResponse'
   /users/{userId}:
     get:
       summary: Get a user by ID
@@ -70,6 +81,81 @@ paths:
       responses:
         '204':
           description: User deleted successfully
+  /tasks:
+    post:
+      summary: Create a task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskRequest'
+      responses:
+        '201':
+          description: Task created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponse'
+    get:
+      summary: Get all tasks
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskResponse'
+  /tasks/{taskId}:
+    get:
+      summary: Get a task by ID
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponse'
+    put:
+      summary: Update a task
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskRequest'
+      responses:
+        '200':
+          description: Task updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponse'
+    delete:
+      summary: Delete a task
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Task deleted successfully
   /contents:
     post:
       summary: Create content
@@ -86,6 +172,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ContentResponse'
+    get:
+      summary: Get all contents
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContentResponse'
   /contents/{contentId}:
     get:
       summary: Get content by ID
@@ -134,6 +231,156 @@ paths:
       responses:
         '204':
           description: Content deleted successfully
+  /reviews:
+    post:
+      summary: Create a review
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewRequest'
+      responses:
+        '201':
+          description: Review created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewResponse'
+    get:
+      summary: Get all reviews
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewResponse'
+  /reviews/{reviewId}:
+    get:
+      summary: Get a review by ID
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewResponse'
+    put:
+      summary: Update a review
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewRequest'
+      responses:
+        '200':
+          description: Review updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewResponse'
+    delete:
+      summary: Delete a review
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Review deleted successfully
+  /publishingplatforms:
+    post:
+      summary: Create a publishing platform
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishingPlatformRequest'
+      responses:
+        '201':
+          description: Publishing platform created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishingPlatformResponse'
+    get:
+      summary: Get all publishing platforms
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PublishingPlatformResponse'
+  /publishingplatforms/{platformId}:
+    get:
+      summary: Get a publishing platform by ID
+      parameters:
+        - name: platformId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishingPlatformResponse'
+    put:
+      summary: Update a publishing platform
+      parameters:
+        - name: platformId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishingPlatformRequest'
+      responses:
+        '200':
+          description: Publishing platform updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishingPlatformResponse'
+    delete:
+      summary: Delete a publishing platform
+      parameters:
+        - name: platformId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Publishing platform deleted successfully
 components:
   schemas:
     UserRequest:
@@ -160,6 +407,46 @@ components:
         role:
           type: string
           enum: [ADMIN, REVIEWER, CONTRIBUTOR]
+    TaskRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        deadline:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum: [PENDING, IN_PROGRESS, COMPLETED, FAILED]
+        assignedToUserId:
+          type: integer
+        targetPlatformIds:
+          type: array
+          items:
+            type: integer
+    TaskResponse:
+      type: object
+      properties:
+        taskId:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        deadline:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum: [PENDING, IN_PROGRESS, COMPLETED, FAILED]
+        assignedTo:
+          $ref: '#/components/schemas/UserResponse'
+        targetPlatforms:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublishingPlatformResponse'
     ContentRequest:
       type: object
       properties:
@@ -198,27 +485,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ReviewResponse'
-    TaskResponse:
+    ReviewRequest:
       type: object
       properties:
-        taskId:
-          type: integer
-        title:
+        feedback:
           type: string
-        description:
-          type: string
-        deadline:
-          type: string
-          format: date-time
         status:
           type: string
-          enum: [PENDING, IN_PROGRESS, COMPLETED, FAILED]
-        assignedTo:
-          $ref: '#/components/schemas/UserResponse'
-        targetPlatforms:
-          type: array
-          items:
-            $ref: '#/components/schemas/PublishingPlatformResponse'
+          enum: [PENDING, APPROVED, REJECTED]
+        reviewedByUserId:
+          type: integer
+        contentId:
+          type: integer
     ReviewResponse:
       type: object
       properties:
@@ -233,6 +511,13 @@ components:
           $ref: '#/components/schemas/UserResponse'
         content:
           $ref: '#/components/schemas/ContentResponse'
+    PublishingPlatformRequest:
+      type: object
+      properties:
+        platformName:
+          type: string
+        APIIntegrationDetails:
+          type: string
     PublishingPlatformResponse:
       type: object
       properties:
