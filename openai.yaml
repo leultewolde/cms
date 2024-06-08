@@ -1,0 +1,244 @@
+openapi: 3.0.0
+info:
+  title: CMS API
+  description: API for Content Management System
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api
+paths:
+  /users:
+    post:
+      summary: Create a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+  /users/{userId}:
+    get:
+      summary: Get a user by ID
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+    put:
+      summary: Update a user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+      responses:
+        '200':
+          description: User updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+    delete:
+      summary: Delete a user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: User deleted successfully
+  /contents:
+    post:
+      summary: Create content
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentRequest'
+      responses:
+        '201':
+          description: Content created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentResponse'
+  /contents/{contentId}:
+    get:
+      summary: Get content by ID
+      parameters:
+        - name: contentId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentResponse'
+    put:
+      summary: Update content
+      parameters:
+        - name: contentId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentRequest'
+      responses:
+        '200':
+          description: Content updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentResponse'
+    delete:
+      summary: Delete content
+      parameters:
+        - name: contentId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Content deleted successfully
+components:
+  schemas:
+    UserRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+          enum: [ADMIN, REVIEWER, CONTRIBUTOR]
+    UserResponse:
+      type: object
+      properties:
+        userId:
+          type: integer
+        username:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+          enum: [ADMIN, REVIEWER, CONTRIBUTOR]
+    ContentRequest:
+      type: object
+      properties:
+        type:
+          type: string
+        data:
+          type: string
+        version:
+          type: string
+        status:
+          type: string
+          enum: [DRAFT, IN_REVIEW, APPROVED, NEEDS_FIXING, COMPLETED]
+        createdByUserId:
+          type: integer
+        taskId:
+          type: integer
+    ContentResponse:
+      type: object
+      properties:
+        contentId:
+          type: integer
+        type:
+          type: string
+        data:
+          type: string
+        version:
+          type: string
+        status:
+          type: string
+          enum: [DRAFT, IN_REVIEW, APPROVED, NEEDS_FIXING, COMPLETED]
+        createdBy:
+          $ref: '#/components/schemas/UserResponse'
+        belongsTo:
+          $ref: '#/components/schemas/TaskResponse'
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReviewResponse'
+    TaskResponse:
+      type: object
+      properties:
+        taskId:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        deadline:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum: [PENDING, IN_PROGRESS, COMPLETED, FAILED]
+        assignedTo:
+          $ref: '#/components/schemas/UserResponse'
+        targetPlatforms:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublishingPlatformResponse'
+    ReviewResponse:
+      type: object
+      properties:
+        reviewId:
+          type: integer
+        feedback:
+          type: string
+        status:
+          type: string
+          enum: [PENDING, APPROVED, REJECTED]
+        reviewedBy:
+          $ref: '#/components/schemas/UserResponse'
+        content:
+          $ref: '#/components/schemas/ContentResponse'
+    PublishingPlatformResponse:
+      type: object
+      properties:
+        platformId:
+          type: integer
+        platformName:
+          type: string
+        APIIntegrationDetails:
+          type: string
