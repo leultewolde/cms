@@ -1,6 +1,6 @@
 package com.leultewolde.cms.dto.request;
 
-import com.leultewolde.cms.enums.TaskStatus;
+import com.leultewolde.cms.model.enums.TaskStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

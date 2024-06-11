@@ -1,6 +1,6 @@
 package com.leultewolde.cms.dto.request;
 
-import com.leultewolde.cms.enums.Role;
+import com.leultewolde.cms.model.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

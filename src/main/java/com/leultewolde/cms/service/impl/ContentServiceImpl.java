@@ -10,7 +10,7 @@ import com.leultewolde.cms.repository.ContentRepository;
 import com.leultewolde.cms.repository.TaskRepository;
 import com.leultewolde.cms.repository.UserRepository;
 import com.leultewolde.cms.service.ContentService;
-import com.leultewolde.cms.utils.ResourceNotFoundException;
+import com.leultewolde.cms.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

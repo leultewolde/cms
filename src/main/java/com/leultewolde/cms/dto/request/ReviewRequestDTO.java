@@ -1,6 +1,6 @@
 package com.leultewolde.cms.dto.request;
 
-import com.leultewolde.cms.enums.ReviewStatus;
+import com.leultewolde.cms.model.enums.ReviewStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

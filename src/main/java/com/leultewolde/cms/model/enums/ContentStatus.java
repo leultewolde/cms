@@ -1,4 +1,4 @@
-package com.leultewolde.cms.enums;
+package com.leultewolde.cms.model.enums;
 
 public enum ContentStatus {
     DRAFT,

@@ -1,0 +1,331 @@
+openapi: 3.0.1
+info:
+  title: CMS API
+  description: API for CMS project
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /content:
+    get:
+      summary: Get all contents
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Create a new content
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Content'
+      responses:
+        '201':
+          description: Content created
+  /content/{id}:
+    get:
+      summary: Get content by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+    put:
+      summary: Update content by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Content'
+      responses:
+        '200':
+          description: Content updated
+    delete:
+      summary: Delete content by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Content deleted
+  /content-history/{contentId}:
+    get:
+      summary: Get content history by content ID
+      parameters:
+        - in: path
+          name: contentId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+  /publishing-platform:
+    get:
+      summary: Get all publishing platforms
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Create a new publishing platform
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishingPlatform'
+      responses:
+        '201':
+          description: Platform created
+  /publishing-platform/{id}:
+    get:
+      summary: Get publishing platform by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+    put:
+      summary: Update publishing platform by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishingPlatform'
+      responses:
+        '200':
+          description: Platform updated
+    delete:
+      summary: Delete publishing platform by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Platform deleted
+  /reviews/{contentId}:
+    get:
+      summary: Get reviews by content ID
+      parameters:
+        - in: path
+          name: contentId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Create a review for content
+      parameters:
+        - in: path
+          name: contentId
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      responses:
+        '201':
+          description: Review created
+  /tasks:
+    get:
+      summary: Get all tasks
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Create a new task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '201':
+          description: Task created
+  /tasks/{id}:
+    get:
+      summary: Get task by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+    put:
+      summary: Update task by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '200':
+          description: Task updated
+    delete:
+      summary: Delete task by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Task deleted
+  /users:
+    get:
+      summary: Get all users
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User created
+  /users/{id}:
+    get:
+      summary: Get user by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+    put:
+      summary: Update user by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User updated
+    delete:
+      summary: Delete user by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: User deleted
+components:
+  schemas:
+    Content:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        body:
+          type: string
+    ContentHistory:
+      type: object
+      properties:
+        id:
+          type: integer
+        contentId:
+          type: integer
+        changeDescription:
+          type: string
+    PublishingPlatform:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Review:
+      type: object
+      properties:
+        id:
+          type: integer
+        contentId:
+          type: integer
+        reviewText:
+          type: string
+    Task:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        email:
+          type: string

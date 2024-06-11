@@ -12,6 +12,4 @@ import java.util.List;
 public class TaskQueueResponseDTO {
     private Integer queueId;
     private List<TaskResponseDTO> tasks;
-
-    // Getters and Setters
 }

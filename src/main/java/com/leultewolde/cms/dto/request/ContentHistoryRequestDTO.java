@@ -14,6 +14,5 @@ public class ContentHistoryRequestDTO {
     private String changeDescription;
     private Integer contentId;
     private Integer modifiedByUserId;
-
-    // Getters and Setters
+    private String version;
 }

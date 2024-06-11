@@ -11,6 +11,4 @@ public class PublishingPlatformResponseDTO {
     private Integer platformId;
     private String platformName;
     private String APIIntegrationDetails;
-
-    // Getters and Setters
 }

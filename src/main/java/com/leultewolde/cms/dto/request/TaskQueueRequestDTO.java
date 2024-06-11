@@ -5,11 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-//@AllArgsConstructor
-@NoArgsConstructor
-public class TaskQueueRequestDTO {
-    // Define fields if necessary, typically minimal or none for TaskQueue creation
+import java.util.List;
 
-    // Getters and Setters
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class TaskQueueRequestDTO {
+    private Integer userId;
+    private List<Integer> taskIds;
 }
+

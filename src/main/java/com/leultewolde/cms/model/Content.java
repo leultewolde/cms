@@ -1,6 +1,6 @@
 package com.leultewolde.cms.model;
 
-import com.leultewolde.cms.enums.ContentStatus;
+import com.leultewolde.cms.model.enums.ContentStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
