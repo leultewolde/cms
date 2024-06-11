@@ -1,45 +1,30 @@
 openapi: 3.0.1
 info:
   title: CMS API
-  description: API for CMS project
+  description: API for Content Management System
   version: 1.0.0
-servers:
-  - url: http://localhost:8080
 paths:
-  /content:
-    get:
-      summary: Get all contents
-      responses:
-        '200':
-          description: Successful response
-    post:
-      summary: Create a new content
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Content'
-      responses:
-        '201':
-          description: Content created
   /content/{id}:
     get:
       summary: Get content by ID
       parameters:
-        - in: path
-          name: id
+        - name: id
+          in: path
           required: true
           schema:
             type: integer
       responses:
         '200':
-          description: Successful response
+          description: Successfully retrieved content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentResponseDTO'
     put:
       summary: Update content by ID
       parameters:
-        - in: path
-          name: id
+        - name: id
+          in: path
           required: true
           schema:
             type: integer
@@ -48,67 +33,169 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Content'
+              $ref: '#/components/schemas/ContentRequestDTO'
       responses:
         '200':
-          description: Content updated
+          description: Successfully updated content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentResponseDTO'
     delete:
       summary: Delete content by ID
       parameters:
-        - in: path
-          name: id
+        - name: id
+          in: path
           required: true
           schema:
             type: integer
       responses:
         '204':
-          description: Content deleted
+          description: Successfully deleted content
+  /content:
+    post:
+      summary: Create new content
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentRequestDTO'
+      responses:
+        '201':
+          description: Successfully created content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentResponseDTO'
   /content-history/{contentId}:
     get:
       summary: Get content history by content ID
       parameters:
-        - in: path
-          name: contentId
+        - name: contentId
+          in: path
           required: true
           schema:
             type: integer
       responses:
         '200':
-          description: Successful response
+          description: Successfully retrieved content history
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentHistoryResponseDTO'
+  /content-history/user/{userId}:
+    get:
+      summary: Get content history by user ID
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved content history
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentHistoryResponseDTO'
+  /publishing-platform/{platformId}:
+    get:
+      summary: Get publishing platform by ID
+      parameters:
+        - name: platformId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved publishing platform
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishingPlatformResponseDTO'
+    put:
+      summary: Update publishing platform by ID
+      parameters:
+        - name: platformId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishingPlatformRequestDTO'
+      responses:
+        '200':
+          description: Successfully updated publishing platform
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishingPlatformResponseDTO'
+    delete:
+      summary: Delete publishing platform by ID
+      parameters:
+        - name: platformId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Successfully deleted publishing platform
   /publishing-platform:
     get:
       summary: Get all publishing platforms
       responses:
         '200':
-          description: Successful response
+          description: Successfully retrieved publishing platforms
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PublishingPlatformResponseDTO'
     post:
-      summary: Create a new publishing platform
+      summary: Create new publishing platform
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PublishingPlatform'
+              $ref: '#/components/schemas/PublishingPlatformRequestDTO'
       responses:
         '201':
-          description: Platform created
-  /publishing-platform/{id}:
+          description: Successfully created publishing platform
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishingPlatformResponseDTO'
+  /reviews/{reviewId}:
     get:
-      summary: Get publishing platform by ID
+      summary: Get review by ID
       parameters:
-        - in: path
-          name: id
+        - name: reviewId
+          in: path
           required: true
           schema:
             type: integer
       responses:
         '200':
-          description: Successful response
+          description: Successfully retrieved review
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewResponseDTO'
     put:
-      summary: Update publishing platform by ID
+      summary: Update review by ID
       parameters:
-        - in: path
-          name: id
+        - name: reviewId
+          in: path
           required: true
           schema:
             type: integer
@@ -117,38 +204,91 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PublishingPlatform'
+              $ref: '#/components/schemas/ReviewRequestDTO'
       responses:
         '200':
-          description: Platform updated
+          description: Successfully updated review
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewResponseDTO'
     delete:
-      summary: Delete publishing platform by ID
+      summary: Delete review by ID
       parameters:
-        - in: path
-          name: id
+        - name: reviewId
+          in: path
           required: true
           schema:
             type: integer
       responses:
         '204':
-          description: Platform deleted
-  /reviews/{contentId}:
+          description: Successfully deleted review
+  /reviews/content/{contentId}:
     get:
       summary: Get reviews by content ID
       parameters:
-        - in: path
-          name: contentId
+        - name: contentId
+          in: path
           required: true
           schema:
             type: integer
       responses:
         '200':
-          description: Successful response
+          description: Successfully retrieved reviews
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewResponseDTO'
+  /reviews:
+    get:
+      summary: Get all reviews
+      responses:
+        '200':
+          description: Successfully retrieved reviews
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewResponseDTO'
     post:
-      summary: Create a review for content
+      summary: Create new review
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewRequestDTO'
+      responses:
+        '201':
+          description: Successfully created review
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewResponseDTO'
+  /tasks/{taskId}:
+    get:
+      summary: Get task by ID
       parameters:
-        - in: path
-          name: contentId
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponseDTO'
+    put:
+      summary: Update task by ID
+      parameters:
+        - name: taskId
+          in: path
           required: true
           schema:
             type: integer
@@ -157,44 +297,73 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Review'
+              $ref: '#/components/schemas/TaskRequestDTO'
       responses:
-        '201':
-          description: Review created
+        '200':
+          description: Successfully updated task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponseDTO'
+    delete:
+      summary: Delete task by ID
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Successfully deleted task
   /tasks:
     get:
       summary: Get all tasks
       responses:
         '200':
-          description: Successful response
+          description: Successfully retrieved tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskResponseDTO'
     post:
-      summary: Create a new task
+      summary: Create new task
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Task'
+              $ref: '#/components/schemas/TaskRequestDTO'
       responses:
         '201':
-          description: Task created
-  /tasks/{id}:
+          description: Successfully created task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponseDTO'
+  /task-queue/{queueId}:
     get:
-      summary: Get task by ID
+      summary: Get task queue by ID
       parameters:
-        - in: path
-          name: id
+        - name: queueId
+          in: path
           required: true
           schema:
             type: integer
       responses:
         '200':
-          description: Successful response
+          description: Successfully retrieved task queue
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskQueueResponseDTO'
     put:
-      summary: Update task by ID
+      summary: Update task queue by ID
       parameters:
-        - in: path
-          name: id
+        - name: queueId
+          in: path
           required: true
           schema:
             type: integer
@@ -203,112 +372,73 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Task'
+              $ref: '#/components/schemas/TaskQueueRequestDTO'
       responses:
         '200':
-          description: Task updated
+          description: Successfully updated task queue
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskQueueResponseDTO'
     delete:
-      summary: Delete task by ID
+      summary: Delete task queue by ID
       parameters:
-        - in: path
-          name: id
+        - name: queueId
+          in: path
           required: true
           schema:
             type: integer
       responses:
         '204':
-          description: Task deleted
-  /users:
-    get:
-      summary: Get all users
-      responses:
-        '200':
-          description: Successful response
-    post:
-      summary: Create a new user
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-      responses:
-        '201':
-          description: User created
-  /users/{id}:
-    get:
-      summary: Get user by ID
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: Successful response
-    put:
-      summary: Update user by ID
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-      responses:
-        '200':
-          description: User updated
-    delete:
-      summary: Delete user by ID
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
-      responses:
-        '204':
-          description: User deleted
+          description: Successfully deleted task queue
   /task-queue:
     get:
       summary: Get all task queues
       responses:
         '200':
-          description: Successful response
+          description: Successfully retrieved task queues
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaskQueueResponseDTO'
     post:
-      summary: Create a new task queue
+      summary: Create new task queue
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TaskQueue'
+              $ref: '#/components/schemas/TaskQueueRequestDTO'
       responses:
         '201':
-          description: Task queue created
-  /task-queue/{id}:
+          description: Successfully created task queue
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskQueueResponseDTO'
+  /users/{userId}:
     get:
-      summary: Get task queue by ID
+      summary: Get user by ID
       parameters:
-        - in: path
-          name: id
+        - name: userId
+          in: path
           required: true
           schema:
             type: integer
       responses:
         '200':
-          description: Successful response
+          description: Successfully retrieved user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseDTO'
     put:
-      summary: Update task queue by ID
+      summary: Update user by ID
       parameters:
-        - in: path
-          name: id
+        - name: userId
+          in: path
           required: true
           schema:
             type: integer
@@ -317,24 +447,55 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TaskQueue'
+              $ref: '#/components/schemas/UserRequestDTO'
       responses:
         '200':
-          description: Task queue updated
+          description: Successfully updated user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseDTO'
     delete:
-      summary: Delete task queue by ID
+      summary: Delete user by ID
       parameters:
-        - in: path
-          name: id
+        - name: userId
+          in: path
           required: true
           schema:
             type: integer
       responses:
         '204':
-          description: Task queue deleted
+          description: Successfully deleted user
+  /users:
+    get:
+      summary: Get all users
+      responses:
+        '200':
+          description: Successfully retrieved users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserResponseDTO'
+    post:
+      summary: Create new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequestDTO'
+      responses:
+        '201':
+          description: Successfully created user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseDTO'
 components:
   schemas:
-    Content:
+    ContentResponseDTO:
       type: object
       properties:
         id:
@@ -343,41 +504,137 @@ components:
           type: string
         body:
           type: string
-    ContentHistory:
+        status:
+          $ref: '#/components/schemas/ContentStatus'
+        createdBy:
+          $ref: '#/components/schemas/UserResponseDTO'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    ContentRequestDTO:
+      type: object
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+        status:
+          $ref: '#/components/schemas/ContentStatus'
+    ContentHistoryResponseDTO:
       type: object
       properties:
         id:
           type: integer
         contentId:
+          type: integer
+        userId:
           type: integer
         changeDescription:
           type: string
-    PublishingPlatform:
+        createdAt:
+          type: string
+          format: date-time
+    ContentHistoryRequestDTO:
+      type: object
+      properties:
+        contentId:
+          type: integer
+        userId:
+          type: integer
+        changeDescription:
+          type: string
+    PublishingPlatformResponseDTO:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
-    Review:
+        url:
+          type: string
+    PublishingPlatformRequestDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+    ReviewResponseDTO:
       type: object
       properties:
         id:
           type: integer
         contentId:
           type: integer
-        reviewText:
+        userId:
+          type: integer
+        rating:
+          type: integer
+        comment:
           type: string
-    Task:
+        status:
+          $ref: '#/components/schemas/ReviewStatus'
+    ReviewRequestDTO:
+      type: object
+      properties:
+        contentId:
+          type: integer
+        userId:
+          type: integer
+        rating:
+          type: integer
+        comment:
+          type: string
+    TaskResponseDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        assignedTo:
+          $ref: '#/components/schemas/UserResponseDTO'
+        status:
+          $ref: '#/components/schemas/TaskStatus'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    TaskRequestDTO:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        assignedToId:
+          type: integer
+        status:
+          $ref: '#/components/schemas/TaskStatus'
+    TaskQueueResponseDTO:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
-        description:
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskResponseDTO'
+    TaskQueueRequestDTO:
+      type: object
+      properties:
+        name:
           type: string
-    User:
+    UserResponseDTO:
       type: object
       properties:
         id:
@@ -386,12 +643,32 @@ components:
           type: string
         email:
           type: string
-    TaskQueue:
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+    UserRequestDTO:
       type: object
       properties:
-        id:
-          type: integer
-        taskId:
-          type: integer
-        queuePosition:
-          type: integer
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+    Role:
+      type: string
+      enum: [REVIEWER, CONTRIBUTOR, ADMINISTRATOR]
+    ContentStatus:
+      type: string
+      enum: [DRAFT, IN_REVIEW, NEEDS_EDITING, APPROVED, COMPLETED, PUBLISHED]
+    ReviewStatus:
+      type: string
+      enum: [PENDING, APPROVED, REJECTED]
+    TaskStatus:
+      type: string
+      enum: [OPEN, IN_PROGRESS, COMPLETED]
