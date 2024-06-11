@@ -275,6 +275,63 @@ paths:
       responses:
         '204':
           description: User deleted
+  /task-queue:
+    get:
+      summary: Get all task queues
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Create a new task queue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskQueue'
+      responses:
+        '201':
+          description: Task queue created
+  /task-queue/{id}:
+    get:
+      summary: Get task queue by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+    put:
+      summary: Update task queue by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskQueue'
+      responses:
+        '200':
+          description: Task queue updated
+    delete:
+      summary: Delete task queue by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Task queue deleted
 components:
   schemas:
     Content:
@@ -329,3 +386,12 @@ components:
           type: string
         email:
           type: string
+    TaskQueue:
+      type: object
+      properties:
+        id:
+          type: integer
+        taskId:
+          type: integer
+        queuePosition:
+          type: integer
