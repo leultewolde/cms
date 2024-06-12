@@ -41,6 +41,18 @@ public class ContentHistoryController {
         return contentHistory.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @GetMapping("content/{contextId}")
+    public ResponseEntity<List<ContentHistoryResponseDTO>> getContentHistoryByContentId(@PathVariable Integer contextId) {
+        Optional<List<ContentHistoryResponseDTO>> contentHistories = contentHistoryService.getContentHistoryByContentId(contextId);
+        return contentHistories.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<ContentHistoryResponseDTO>> getContentHistoryByUserId(@PathVariable Integer userId) {
+        Optional<List<ContentHistoryResponseDTO>> contentHistories = contentHistoryService.getContentHistoryByUserId(userId);
+        return contentHistories.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
     @GetMapping
     public ResponseEntity<List<ContentHistoryResponseDTO>> getAllContentHistories() {
         List<ContentHistoryResponseDTO> contentHistories = contentHistoryService.getAllContentHistories();

@@ -15,5 +15,8 @@ public interface ContentHistoryService {
 
     Optional<ContentHistoryResponseDTO> getContentHistoryById(Integer changeId);
 
+    Optional<List<ContentHistoryResponseDTO>> getContentHistoryByContentId(Integer contentId);
+    Optional<List<ContentHistoryResponseDTO>> getContentHistoryByUserId(Integer userId);
+
     List<ContentHistoryResponseDTO> getAllContentHistories();
 }

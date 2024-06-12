@@ -4,11 +4,38 @@ info:
   description: API for Content Management System
   version: 1.0.0
 paths:
-  /content/{id}:
+  /contents:
+    post:
+      summary: Create new content
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentRequestDTO'
+      responses:
+        '201':
+          description: Successfully created content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentResponseDTO'
+    get:
+      summary: Get all contents
+      responses:
+        '200':
+          description: Successfully retrieved contents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContentResponseDTO'
+  /contents/{contentId}:
     get:
       summary: Get content by ID
       parameters:
-        - name: id
+        - name: contentId
           in: path
           required: true
           schema:
@@ -23,7 +50,7 @@ paths:
     put:
       summary: Update content by ID
       parameters:
-        - name: id
+        - name: contentId
           in: path
           required: true
           schema:
@@ -44,7 +71,7 @@ paths:
     delete:
       summary: Delete content by ID
       parameters:
-        - name: id
+        - name: contentId
           in: path
           required: true
           schema:
@@ -52,27 +79,38 @@ paths:
       responses:
         '204':
           description: Successfully deleted content
-  /content:
+  /content-histories:
     post:
-      summary: Create new content
+      summary: Create new content history
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ContentRequestDTO'
+              $ref: '#/components/schemas/ContentHistoryRequestDTO'
       responses:
         '201':
-          description: Successfully created content
+          description: Successfully created content history
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ContentResponseDTO'
-  /content-history/{contentId}:
+                $ref: '#/components/schemas/ContentHistoryResponseDTO'
     get:
-      summary: Get content history by content ID
+      summary: Get all content histories
+      responses:
+        '200':
+          description: Successfully retrieved content histories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContentHistoryResponseDTO'
+  /content-histories/{changeId}:
+    get:
+      summary: Get content history by ID
       parameters:
-        - name: contentId
+        - name: changeId
           in: path
           required: true
           schema:
@@ -84,7 +122,57 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ContentHistoryResponseDTO'
-  /content-history/user/{userId}:
+    put:
+      summary: Update content history by ID
+      parameters:
+        - name: changeId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContentHistoryRequestDTO'
+      responses:
+        '200':
+          description: Successfully updated content history
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentHistoryResponseDTO'
+    delete:
+      summary: Delete content history by ID
+      parameters:
+        - name: changeId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Successfully deleted content history
+  /content-histories/content/{contextId}:
+    get:
+      summary: Get content history by content ID
+      parameters:
+        - name: contextId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully retrieved content histories by content ID
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContentHistoryResponseDTO'
+  /content-histories/user/{userId}:
     get:
       summary: Get content history by user ID
       parameters:
@@ -95,11 +183,13 @@ paths:
             type: integer
       responses:
         '200':
-          description: Successfully retrieved content history
+          description: Successfully retrieved content histories by user ID
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ContentHistoryResponseDTO'
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContentHistoryResponseDTO'
   /publishing-platform/{platformId}:
     get:
       summary: Get publishing platform by ID

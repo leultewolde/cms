@@ -2,6 +2,7 @@ package com.leultewolde.cms.service.impl;
 
 import com.leultewolde.cms.dto.request.ContentHistoryRequestDTO;
 import com.leultewolde.cms.dto.response.ContentHistoryResponseDTO;
+import com.leultewolde.cms.exception.ResourceNotFoundException;
 import com.leultewolde.cms.mapper.ContentHistoryMapper;
 import com.leultewolde.cms.model.Content;
 import com.leultewolde.cms.model.ContentHistory;
@@ -10,7 +11,6 @@ import com.leultewolde.cms.repository.ContentHistoryRepository;
 import com.leultewolde.cms.repository.ContentRepository;
 import com.leultewolde.cms.repository.UserRepository;
 import com.leultewolde.cms.service.ContentHistoryService;
-import com.leultewolde.cms.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -62,6 +62,18 @@ public class ContentHistoryServiceImpl implements ContentHistoryService {
     @Override
     public Optional<ContentHistoryResponseDTO> getContentHistoryById(Integer changeId) {
         return contentHistoryRepository.findById(changeId).map(contentHistoryMapper::toDTO);
+    }
+
+    @Override
+    public Optional<List<ContentHistoryResponseDTO>> getContentHistoryByContentId(Integer contentId) {
+        return contentHistoryRepository.findContentHistoriesByContent_ContentId(contentId)
+                .map(contentHistoryMapper::toDTO);
+    }
+
+    @Override
+    public Optional<List<ContentHistoryResponseDTO>> getContentHistoryByUserId(Integer userId) {
+        return contentHistoryRepository.findContentHistoriesByModifiedBy_UserId(userId)
+                .map(contentHistoryMapper::toDTO);
     }
 
     @Override
