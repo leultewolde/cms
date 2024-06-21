@@ -11,5 +11,5 @@ import java.util.List;
 @NoArgsConstructor
 public class TaskQueueResponseDTO {
     private Integer queueId;
-    private List<TaskResponseDTO> tasks;
+    private List<Integer> tasksIds;
 }

@@ -17,7 +17,7 @@ public interface ContentMapper extends BaseMapper<Content, ContentRequestDTO, Co
     Content toEntity(ContentRequestDTO dto);
 
     @Override
-    @Mapping(source = "createdBy.userId", target = "createdBy.userId")
-    @Mapping(source = "belongsTo.taskId", target = "belongsTo.taskId")
+    @Mapping(source = "createdBy.userId", target = "createdByUserId")
+    @Mapping(source = "belongsTo.taskId", target = "taskId")
     ContentResponseDTO toDTO(Content entity);
 }

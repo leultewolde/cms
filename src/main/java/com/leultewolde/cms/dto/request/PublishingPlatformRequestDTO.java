@@ -10,6 +10,4 @@ import lombok.NoArgsConstructor;
 public class PublishingPlatformRequestDTO {
     private String platformName;
     private String APIIntegrationDetails;
-
-    // Getters and Setters
 }

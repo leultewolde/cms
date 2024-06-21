@@ -9,11 +9,11 @@ import java.util.Optional;
 public interface UserService {
     UserResponseDTO createUser(UserRequestDTO userRequestDTO);
 
-    Optional<UserResponseDTO> updateUser(Integer userId, UserRequestDTO userRequestDTO);
+    Optional<UserResponseDTO> updateUser(String username, UserRequestDTO userRequestDTO);
 
-    void deleteUser(Integer userId);
+    String deleteUser(String username);
 
-    Optional<UserResponseDTO> getUserById(Integer userId);
+    Optional<UserResponseDTO> getUserByUsername(String username);
 
     List<UserResponseDTO> getAllUsers();
 }

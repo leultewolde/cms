@@ -5,6 +5,7 @@ import com.leultewolde.cms.dto.response.ReviewResponseDTO;
 import com.leultewolde.cms.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,18 +19,21 @@ public class ReviewController {
     private final ReviewService reviewService;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('reviewer:write')")
     public ResponseEntity<ReviewResponseDTO> createReview(@RequestBody ReviewRequestDTO reviewRequestDTO) {
         ReviewResponseDTO createdReview = reviewService.createReview(reviewRequestDTO);
         return ResponseEntity.ok(createdReview);
     }
 
     @PutMapping("/{reviewId}")
+    @PreAuthorize("hasAuthority('reviewer:write')")
     public ResponseEntity<ReviewResponseDTO> updateReview(@PathVariable Integer reviewId, @RequestBody ReviewRequestDTO reviewRequestDTO) {
         Optional<ReviewResponseDTO> updatedReview = reviewService.updateReview(reviewId, reviewRequestDTO);
         return updatedReview.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{reviewId}")
+    @PreAuthorize("hasAuthority('reviewer:write')")
     public ResponseEntity<Void> deleteReview(@PathVariable Integer reviewId) {
         reviewService.deleteReview(reviewId);
         return ResponseEntity.noContent().build();

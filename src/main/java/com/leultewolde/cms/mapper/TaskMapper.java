@@ -16,6 +16,6 @@ public interface TaskMapper extends BaseMapper<Task, TaskRequestDTO, TaskRespons
     Task toEntity(TaskRequestDTO dto);
 
     @Override
-    @Mapping(source = "assignedTo.userId", target = "assignedTo.userId")
+    @Mapping(source = "assignedTo.userId", target = "assignedToUserId")
     TaskResponseDTO toDTO(Task entity);
 }

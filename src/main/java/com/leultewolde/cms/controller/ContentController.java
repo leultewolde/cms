@@ -5,6 +5,7 @@ import com.leultewolde.cms.dto.response.ContentResponseDTO;
 import com.leultewolde.cms.service.ContentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,18 +19,21 @@ public class ContentController {
     private final ContentService contentService;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('contributor:write')")
     public ResponseEntity<ContentResponseDTO> createContent(@RequestBody ContentRequestDTO contentRequestDTO) {
         ContentResponseDTO createdContent = contentService.createContent(contentRequestDTO);
         return ResponseEntity.ok(createdContent);
     }
 
     @PutMapping("/{contentId}")
+    @PreAuthorize("hasAnyAuthority('admin:read','admin:write','contributor:read','contributor:write','reviewer:read','reviewer:write')")
     public ResponseEntity<ContentResponseDTO> updateContent(@PathVariable Integer contentId, @RequestBody ContentRequestDTO contentRequestDTO) {
         Optional<ContentResponseDTO> updatedContent = contentService.updateContent(contentId, contentRequestDTO);
         return updatedContent.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{contentId}")
+    @PreAuthorize("hasAuthority('contributor:write')")
     public ResponseEntity<Void> deleteContent(@PathVariable Integer contentId) {
         contentService.deleteContent(contentId);
         return ResponseEntity.noContent().build();

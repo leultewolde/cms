@@ -34,7 +34,4 @@ public class Content {
 
     @OneToMany(mappedBy = "content", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Review> reviews;
-
-    @OneToMany(mappedBy = "content", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<ContentHistory> history;
 }
