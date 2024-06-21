@@ -16,7 +16,7 @@ public class ContentResponseDTO {
     private String data;
     private String version;
     private ContentStatus status;
-    private UserResponseDTO createdBy;
-    private TaskResponseDTO belongsTo;
-    private List<ReviewResponseDTO> reviews;
+    private Integer createdByUserId;
+    private Integer taskId;
+    private List<Integer> reviewIds;
 }

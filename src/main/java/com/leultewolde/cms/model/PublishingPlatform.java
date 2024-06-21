@@ -16,6 +16,6 @@ public class PublishingPlatform {
     private Integer platformId;
 
     private String platformName;
-    private String APIIntegrationDetails;
+    private String api_integration_details;
 }
 

@@ -17,7 +17,7 @@ public interface ReviewMapper extends BaseMapper<Review, ReviewRequestDTO, Revie
     Review toEntity(ReviewRequestDTO dto);
 
     @Override
-    @Mapping(source = "reviewedBy.userId", target = "reviewedBy.userId")
-    @Mapping(source = "content.contentId", target = "content.contentId")
+    @Mapping(source = "reviewedBy.userId", target = "reviewedByUserId")
+    @Mapping(source = "content.contentId", target = "contentId")
     ReviewResponseDTO toDTO(Review entity);
 }

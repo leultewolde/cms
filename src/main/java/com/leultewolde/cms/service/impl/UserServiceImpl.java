@@ -2,6 +2,7 @@ package com.leultewolde.cms.service.impl;
 
 import com.leultewolde.cms.dto.request.UserRequestDTO;
 import com.leultewolde.cms.dto.response.UserResponseDTO;
+import com.leultewolde.cms.mapper.TaskMapper;
 import com.leultewolde.cms.mapper.UserMapper;
 import com.leultewolde.cms.model.User;
 import com.leultewolde.cms.repository.UserRepository;
@@ -18,6 +19,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final TaskMapper taskMapper;
 
     @Override
     public UserResponseDTO createUser(UserRequestDTO userRequestDTO) {
@@ -27,8 +29,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<UserResponseDTO> updateUser(Integer userId, UserRequestDTO userRequestDTO) {
-        return userRepository.findById(userId)
+    public Optional<UserResponseDTO> updateUser(String username, UserRequestDTO userRequestDTO) {
+        return userRepository.findUserByUsername(username)
                 .map(existingUser -> {
                     userMapper.updateEntityFromDTO(userRequestDTO, existingUser);
                     return userMapper.toDTO(userRepository.save(existingUser));
@@ -36,13 +38,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(Integer userId) {
-        userRepository.deleteById(userId);
+    public String deleteUser(String username) {
+        Optional<User> foundUser = userRepository.findUserByUsername(username);
+        if (foundUser.isPresent()) {
+            userRepository.delete(foundUser.get());
+            return "DELETED";
+        }
+        return null;
     }
 
     @Override
-    public Optional<UserResponseDTO> getUserById(Integer userId) {
-        return userRepository.findById(userId).map(userMapper::toDTO);
+    public Optional<UserResponseDTO> getUserByUsername(String username) {
+        return userRepository.findUserByUsername(username).map(userMapper::toDTO);
     }
 
     @Override

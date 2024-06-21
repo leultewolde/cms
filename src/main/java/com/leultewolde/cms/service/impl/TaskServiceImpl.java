@@ -66,5 +66,10 @@ public class TaskServiceImpl implements TaskService {
     public List<TaskResponseDTO> getAllTasks() {
         return taskMapper.toDTO(taskRepository.findAll());
     }
+
+    @Override
+    public List<TaskResponseDTO> getTasksByUsername(String username) {
+        return taskMapper.toDTO(taskRepository.findTasksByAssignedTo_Username(username));
+    }
 }
 

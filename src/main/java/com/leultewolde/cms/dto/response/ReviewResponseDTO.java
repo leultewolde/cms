@@ -12,6 +12,6 @@ public class ReviewResponseDTO {
     private Integer reviewId;
     private String feedback;
     private ReviewStatus status;
-    private UserResponseDTO reviewedBy;
-    private ContentResponseDTO content;
+    private Integer reviewedByUserId;
+    private Integer contentId;
 }

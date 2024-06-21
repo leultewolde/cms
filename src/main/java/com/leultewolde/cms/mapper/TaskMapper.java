@@ -11,11 +11,11 @@ import org.mapstruct.factory.Mappers;
 public interface TaskMapper extends BaseMapper<Task, TaskRequestDTO, TaskResponseDTO> {
     TaskMapper INSTANCE = Mappers.getMapper(TaskMapper.class);
 
-    @Override
-    @Mapping(source = "assignedToUserId", target = "assignedTo.userId")
-    Task toEntity(TaskRequestDTO dto);
-
-    @Override
-    @Mapping(source = "assignedTo.userId", target = "assignedTo.userId")
-    TaskResponseDTO toDTO(Task entity);
+//    @Override
+//    @Mapping(source = "assignedTo.userId", target = "assignedTo.userId")
+//    Task toEntity(TaskRequestDTO dto);
+//
+//    @Override
+//    @Mapping(source = "assignedTo.userId", target = "assignedTo.userId")
+//    TaskResponseDTO toDTO(Task entity);
 }

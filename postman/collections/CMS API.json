@@ -1,0 +1,3065 @@
+{
+	"info": {
+		"_postman_id": "6d949278-d572-465f-a214-3ee7b7025622",
+		"name": "CMS API",
+		"description": "API for Content Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "9308902-6d949278-d572-465f-a214-3ee7b7025622"
+	},
+	"item": [
+		{
+			"name": "content",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get content by ID",
+							"id": "c2749b87-a711-453b-a745-0edbbbb1c76a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/contents/:contentId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contents",
+										":contentId"
+									],
+									"variable": [
+										{
+											"key": "contentId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "882c6508-eeea-4697-ab58-214dab2cb94d",
+									"name": "Successfully retrieved content",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/contents/:contentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"contents",
+												":contentId"
+											],
+											"variable": [
+												{
+													"key": "contentId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"status\": \"DRAFT\",\n  \"createdBy\": {\n    \"id\": -69032720,\n    \"username\": \"nostrud ea culpa\",\n    \"email\": \"do amet elit dolor velit\",\n    \"roles\": [\n      \"ADMINISTRATOR\",\n      \"ADMINISTRATOR\"\n    ]\n  },\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update content by ID",
+							"id": "0fea566f-4376-47a0-89e2-25091ab33cee",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"status\": \"APPROVED\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/contents/:contentId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contents",
+										":contentId"
+									],
+									"variable": [
+										{
+											"key": "contentId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "e48fc87b-0482-44dd-8443-a53b15562b89",
+									"name": "Successfully updated content",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"status\": \"APPROVED\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/contents/:contentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"contents",
+												":contentId"
+											],
+											"variable": [
+												{
+													"key": "contentId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"status\": \"DRAFT\",\n  \"createdBy\": {\n    \"id\": -69032720,\n    \"username\": \"nostrud ea culpa\",\n    \"email\": \"do amet elit dolor velit\",\n    \"roles\": [\n      \"ADMINISTRATOR\",\n      \"ADMINISTRATOR\"\n    ]\n  },\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete content by ID",
+							"id": "0bcec017-c35e-48ab-92cc-f627c7a8602f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/contents/:contentId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contents",
+										":contentId"
+									],
+									"variable": [
+										{
+											"key": "contentId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "fdd792c1-e88c-4420-87d5-c613a67a3bf4",
+									"name": "Successfully deleted content",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/contents/:contentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"contents",
+												":contentId"
+											],
+											"variable": [
+												{
+													"key": "contentId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": []
+								}
+							]
+						}
+					],
+					"id": "3ce85a12-1efc-45ef-ae71-d753d7c179a8"
+				},
+				{
+					"name": "Create new content",
+					"id": "3c9d2f2f-8599-419c-bbe4-71174d4b1476",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"status\": \"APPROVED\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/contents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contents"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "f40e70b3-363f-4db2-8bb9-e543f5e309e1",
+							"name": "Successfully created content",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"status\": \"APPROVED\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/contents",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contents"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"status\": \"DRAFT\",\n  \"createdBy\": {\n    \"id\": -69032720,\n    \"username\": \"nostrud ea culpa\",\n    \"email\": \"do amet elit dolor velit\",\n    \"roles\": [\n      \"ADMINISTRATOR\",\n      \"ADMINISTRATOR\"\n    ]\n  },\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all contents",
+					"id": "1c31a3ca-bfab-4f7c-89a5-b2aec2944c7a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/contents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contents"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "f2b18ca8-7ccd-4dde-8bfe-87d79b822b2b",
+							"name": "Successfully retrieved contents",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/contents",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contents"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"body\": \"<string>\",\n    \"status\": \"NEEDS_EDITING\",\n    \"createdBy\": {\n      \"id\": 17023037,\n      \"username\": \"et enim\",\n      \"email\": \"mollit irure enim\",\n      \"roles\": [\n        \"ADMINISTRATOR\",\n        \"CONTRIBUTOR\"\n      ]\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"body\": \"<string>\",\n    \"status\": \"PUBLISHED\",\n    \"createdBy\": {\n      \"id\": 32920841,\n      \"username\": \"voluptate sit ipsum proident\",\n      \"email\": \"dolore reprehenderit \",\n      \"roles\": [\n        \"REVIEWER\",\n        \"REVIEWER\"\n      ]\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  }\n]"
+						}
+					]
+				}
+			],
+			"id": "104a6dbe-09b5-4ef0-9443-e60bb6733e66"
+		},
+		{
+			"name": "content-history",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "{userId}",
+							"item": [
+								{
+									"name": "Get content history by user ID",
+									"id": "6e8ddee6-86da-483c-9bed-717fc7900d14",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/content-histories/user/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"content-histories",
+												"user",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "a0ba1a61-8002-4b90-a994-50f0cde88726",
+											"name": "Successfully retrieved content histories by user ID",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/content-histories/user/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"content-histories",
+														"user",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"contentId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"changeDescription\": \"<string>\",\n    \"createdAt\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"contentId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"changeDescription\": \"<string>\",\n    \"createdAt\": \"<dateTime>\"\n  }\n]"
+										}
+									]
+								}
+							],
+							"id": "58640e64-9565-49fe-b31d-67eb12e16891"
+						}
+					],
+					"id": "831e4ce8-d195-4da9-9d2b-7bdc5b12daba"
+				},
+				{
+					"name": "content",
+					"item": [
+						{
+							"name": "{contentId}",
+							"item": [
+								{
+									"name": "Get content history by content ID",
+									"id": "90130313-fe6d-458a-85d3-6bea47c6d717",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/content-histories/content/:contextId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"content-histories",
+												"content",
+												":contextId"
+											],
+											"variable": [
+												{
+													"key": "contextId",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "0b4cf871-5ddc-40ce-a033-0402d694362f",
+											"name": "Successfully retrieved content histories by content ID",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/content-histories/content/:contextId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"content-histories",
+														"content",
+														":contextId"
+													],
+													"variable": [
+														{
+															"key": "contextId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"contentId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"changeDescription\": \"<string>\",\n    \"createdAt\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"contentId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"changeDescription\": \"<string>\",\n    \"createdAt\": \"<dateTime>\"\n  }\n]"
+										}
+									]
+								}
+							],
+							"id": "34249ac1-2621-4eae-ac15-257176e7e0c8"
+						}
+					],
+					"id": "e4e45dfa-13ee-4bc8-b281-f7f07fe6652c"
+				},
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get content history by ID",
+							"id": "a7570ad2-7cd9-4f01-be2c-c174a0f3f6fa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/content-histories/:changeId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"content-histories",
+										":changeId"
+									],
+									"variable": [
+										{
+											"key": "changeId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "2e62f537-6983-46ad-a0fc-dfc52b4668ac",
+									"name": "Successfully retrieved content history",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/content-histories/:changeId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"content-histories",
+												":changeId"
+											],
+											"variable": [
+												{
+													"key": "changeId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"changeDescription\": \"<string>\",\n  \"createdAt\": \"<dateTime>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update content history by ID",
+							"id": "92120d3e-4f90-4e94-a055-4c0556127a40",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"changeDescription\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/content-histories/:changeId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"content-histories",
+										":changeId"
+									],
+									"variable": [
+										{
+											"key": "changeId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "207889a1-6fe7-4e73-b01e-2a4cf031824b",
+									"name": "Successfully updated content history",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"changeDescription\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/content-histories/:changeId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"content-histories",
+												":changeId"
+											],
+											"variable": [
+												{
+													"key": "changeId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"changeDescription\": \"<string>\",\n  \"createdAt\": \"<dateTime>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete content history by ID",
+							"id": "92d1b9e9-5ec8-4a04-882a-3b6b6408abbc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/content-histories/:changeId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"content-histories",
+										":changeId"
+									],
+									"variable": [
+										{
+											"key": "changeId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "a0b3fa4a-f83f-4087-959f-5c82584895d9",
+									"name": "Successfully deleted content history",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/content-histories/:changeId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"content-histories",
+												":changeId"
+											],
+											"variable": [
+												{
+													"key": "changeId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": []
+								}
+							]
+						}
+					],
+					"id": "c5192960-04a9-4ed5-b4e5-0baa9a3469c0"
+				},
+				{
+					"name": "Create new content history",
+					"id": "e34479b5-6fb7-470a-8585-e7ef4777f3de",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"changeDescription\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/content-histories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"content-histories"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "5b4caf45-28b9-4a39-ab5e-452fa1091381",
+							"name": "Successfully created content history",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"changeDescription\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/content-histories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"content-histories"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\",\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"changeDescription\": \"<string>\",\n  \"createdAt\": \"<dateTime>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all content histories",
+					"id": "c589311c-44a6-4071-9d62-fd94dcab202e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/content-histories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"content-histories"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "cc7b4869-160a-4e10-ac55-13d26809e568",
+							"name": "Successfully retrieved content histories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/content-histories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"content-histories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"contentId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"changeDescription\": \"<string>\",\n    \"createdAt\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"contentId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"changeDescription\": \"<string>\",\n    \"createdAt\": \"<dateTime>\"\n  }\n]"
+						}
+					]
+				}
+			],
+			"id": "561da77f-f072-4d32-b05c-84e20e25b004"
+		},
+		{
+			"name": "publishing-platform",
+			"item": [
+				{
+					"name": "{platformId}",
+					"item": [
+						{
+							"name": "Get publishing platform by ID",
+							"id": "69da8265-c6ab-4220-9e9c-02a6bc6a53ff",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/publishing-platform/:platformId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"publishing-platform",
+										":platformId"
+									],
+									"variable": [
+										{
+											"key": "platformId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "07c9efd4-ac56-4949-96aa-acdef0f2dae0",
+									"name": "Successfully retrieved publishing platform",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/publishing-platform/:platformId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"publishing-platform",
+												":platformId"
+											],
+											"variable": [
+												{
+													"key": "platformId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update publishing platform by ID",
+							"id": "30cfb0aa-5cbb-4eef-8ecc-efb952d0aab8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/publishing-platform/:platformId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"publishing-platform",
+										":platformId"
+									],
+									"variable": [
+										{
+											"key": "platformId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "995a15f1-1774-4a16-a749-5af2e8475d95",
+									"name": "Successfully updated publishing platform",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/publishing-platform/:platformId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"publishing-platform",
+												":platformId"
+											],
+											"variable": [
+												{
+													"key": "platformId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete publishing platform by ID",
+							"id": "9c169bc2-784c-47b0-950f-28bd84550348",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/publishing-platform/:platformId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"publishing-platform",
+										":platformId"
+									],
+									"variable": [
+										{
+											"key": "platformId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "d8fa25ae-307f-4200-b511-92784a40f4a9",
+									"name": "Successfully deleted publishing platform",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/publishing-platform/:platformId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"publishing-platform",
+												":platformId"
+											],
+											"variable": [
+												{
+													"key": "platformId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": []
+								}
+							]
+						}
+					],
+					"id": "43f065ba-58b3-4c3d-99b4-7f32a8bf71f1"
+				},
+				{
+					"name": "Get all publishing platforms",
+					"id": "f6361c4b-00a1-4b79-8c59-d7656d03dcc0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/publishing-platform",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"publishing-platform"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "02623bee-b4e7-43fe-8653-32ff7c94f551",
+							"name": "Successfully retrieved publishing platforms",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/publishing-platform",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"publishing-platform"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create new publishing platform",
+					"id": "c7695ec8-0d30-4edd-bdd7-9743004170d4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/publishing-platform",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"publishing-platform"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "d966d1f5-2f40-49fa-9db1-5307391bc0f8",
+							"name": "Successfully created publishing platform",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/publishing-platform",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"publishing-platform"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\"\n}"
+						}
+					]
+				}
+			],
+			"id": "1147fe4f-1798-4515-9079-a29fb5df9f98"
+		},
+		{
+			"name": "reviews",
+			"item": [
+				{
+					"name": "{reviewId}",
+					"item": [
+						{
+							"name": "Get review by ID",
+							"id": "915901bf-7516-4095-861a-d01a71c76a05",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/:reviewId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										":reviewId"
+									],
+									"variable": [
+										{
+											"key": "reviewId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "52ca64f4-55eb-4ca2-82f2-8ec4bd37e7d3",
+									"name": "Successfully retrieved review",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:reviewId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":reviewId"
+											],
+											"variable": [
+												{
+													"key": "reviewId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"status\": \"APPROVED\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update review by ID",
+							"id": "c5780576-9e73-4a9c-b107-37e05bf31b6e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reviews/:reviewId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										":reviewId"
+									],
+									"variable": [
+										{
+											"key": "reviewId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "ae2596d0-5fc2-42e7-bd41-de44a674e5b1",
+									"name": "Successfully updated review",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:reviewId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":reviewId"
+											],
+											"variable": [
+												{
+													"key": "reviewId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"status\": \"APPROVED\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete review by ID",
+							"id": "c8dc0d92-c246-4b46-bfc5-cb1a47475d35",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/reviews/:reviewId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews",
+										":reviewId"
+									],
+									"variable": [
+										{
+											"key": "reviewId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "779dbe21-be09-468a-a7ff-bff0a51c15f4",
+									"name": "Successfully deleted review",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/:reviewId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												":reviewId"
+											],
+											"variable": [
+												{
+													"key": "reviewId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": []
+								}
+							]
+						}
+					],
+					"id": "4e0814df-d648-4122-a04c-8c670dd59f1f"
+				},
+				{
+					"name": "content",
+					"item": [
+						{
+							"name": "{contentId}",
+							"item": [
+								{
+									"name": "Get reviews by content ID",
+									"id": "b2e0483f-9116-4b70-bc07-76b9a409cc02",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/reviews/content/:contentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reviews",
+												"content",
+												":contentId"
+											],
+											"variable": [
+												{
+													"key": "contentId",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "a6a6f35a-2fc2-4782-a3a7-b12a52b63d77",
+											"name": "Successfully retrieved reviews",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/reviews/content/:contentId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"reviews",
+														"content",
+														":contentId"
+													],
+													"variable": [
+														{
+															"key": "contentId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"contentId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"rating\": \"<integer>\",\n    \"comment\": \"<string>\",\n    \"status\": \"REJECTED\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"contentId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"rating\": \"<integer>\",\n    \"comment\": \"<string>\",\n    \"status\": \"REJECTED\"\n  }\n]"
+										}
+									]
+								}
+							],
+							"id": "16207b8b-4bba-40b7-a8f4-f2ed66702e04"
+						}
+					],
+					"id": "03aa1e82-f07a-43b8-8fff-9af7ebc0bdf3"
+				},
+				{
+					"name": "Get all reviews",
+					"id": "4e2619e1-a3f5-4f93-a68a-6df49d934dd9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "c1b7c711-e20b-4731-b854-411aea58fd80",
+							"name": "Successfully retrieved reviews",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reviews",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"contentId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"rating\": \"<integer>\",\n    \"comment\": \"<string>\",\n    \"status\": \"REJECTED\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"contentId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"rating\": \"<integer>\",\n    \"comment\": \"<string>\",\n    \"status\": \"REJECTED\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create new review",
+					"id": "e440528b-c3f6-499a-a017-84bf16e4855d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "4ef87d8f-1d10-49d8-a42d-2b7b12d72d42",
+							"name": "Successfully created review",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reviews",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reviews"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\",\n  \"contentId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"rating\": \"<integer>\",\n  \"comment\": \"<string>\",\n  \"status\": \"APPROVED\"\n}"
+						}
+					]
+				}
+			],
+			"id": "ff13ad0a-8379-4024-9f42-d6583c393c00"
+		},
+		{
+			"name": "tasks",
+			"item": [
+				{
+					"name": "{taskId}",
+					"item": [
+						{
+							"name": "Get task by ID",
+							"id": "78628f8d-3d4b-4ad0-8917-e219ab67a911",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/tasks/:taskId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tasks",
+										":taskId"
+									],
+									"variable": [
+										{
+											"key": "taskId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "b356a8e5-95f9-41c3-82f7-406b482273ec",
+									"name": "Successfully retrieved task",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/tasks/:taskId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"tasks",
+												":taskId"
+											],
+											"variable": [
+												{
+													"key": "taskId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"assignedTo\": {\n    \"id\": \"<integer>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\",\n    \"roles\": [\n      \"CONTRIBUTOR\",\n      \"ADMINISTRATOR\"\n    ]\n  },\n  \"status\": \"OPEN\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update task by ID",
+							"id": "20d7ed47-06b2-4cca-94fb-ecab37dc8894",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"assignedToId\": \"<integer>\",\n  \"status\": \"IN_PROGRESS\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/tasks/:taskId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tasks",
+										":taskId"
+									],
+									"variable": [
+										{
+											"key": "taskId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "f8951f31-3f72-41e9-9bae-0355b465916c",
+									"name": "Successfully updated task",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"assignedToId\": \"<integer>\",\n  \"status\": \"IN_PROGRESS\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/tasks/:taskId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"tasks",
+												":taskId"
+											],
+											"variable": [
+												{
+													"key": "taskId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"assignedTo\": {\n    \"id\": \"<integer>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\",\n    \"roles\": [\n      \"CONTRIBUTOR\",\n      \"ADMINISTRATOR\"\n    ]\n  },\n  \"status\": \"OPEN\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete task by ID",
+							"id": "6286b9fe-f57f-4766-ac8d-4935d8117f5a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/tasks/:taskId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tasks",
+										":taskId"
+									],
+									"variable": [
+										{
+											"key": "taskId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "4a4e730b-817e-4cd2-895f-85474358d682",
+									"name": "Successfully deleted task",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/tasks/:taskId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"tasks",
+												":taskId"
+											],
+											"variable": [
+												{
+													"key": "taskId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": []
+								}
+							]
+						}
+					],
+					"id": "a0ce0a2b-efed-42f9-adff-8915e951f24e"
+				},
+				{
+					"name": "Get all tasks",
+					"id": "00321d3e-eb16-4d15-9ba1-d6ea1ec7cf8c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tasks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "c1c86093-dfd6-484a-a879-5ef4ca9292d8",
+							"name": "Successfully retrieved tasks",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/tasks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tasks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"assignedTo\": {\n      \"id\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"email\": \"<string>\",\n      \"roles\": [\n        \"CONTRIBUTOR\",\n        \"ADMINISTRATOR\"\n      ]\n    },\n    \"status\": \"OPEN\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"assignedTo\": {\n      \"id\": \"<integer>\",\n      \"username\": \"<string>\",\n      \"email\": \"<string>\",\n      \"roles\": [\n        \"REVIEWER\",\n        \"REVIEWER\"\n      ]\n    },\n    \"status\": \"OPEN\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create new task",
+					"id": "1e714b6e-abb7-4cd6-bedd-439defe9ccb0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"assignedToId\": \"<integer>\",\n  \"status\": \"IN_PROGRESS\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tasks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "f8f99a6e-5957-47ff-97e4-fa5fcf09baa3",
+							"name": "Successfully created task",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"assignedToId\": \"<integer>\",\n  \"status\": \"IN_PROGRESS\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/tasks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tasks"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"assignedTo\": {\n    \"id\": \"<integer>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\",\n    \"roles\": [\n      \"CONTRIBUTOR\",\n      \"ADMINISTRATOR\"\n    ]\n  },\n  \"status\": \"OPEN\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}"
+						}
+					]
+				}
+			],
+			"id": "c747f33d-1ee7-4b3a-a6fc-5584e997c0f7"
+		},
+		{
+			"name": "task-queue",
+			"item": [
+				{
+					"name": "{queueId}",
+					"item": [
+						{
+							"name": "Get task queue by ID",
+							"id": "c81e0174-5cc8-474c-85ca-a1149d2d011d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/task-queue/:queueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"task-queue",
+										":queueId"
+									],
+									"variable": [
+										{
+											"key": "queueId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "510c6aeb-0ad0-4894-80cb-8538d2a86521",
+									"name": "Successfully retrieved task queue",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/task-queue/:queueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"task-queue",
+												":queueId"
+											],
+											"variable": [
+												{
+													"key": "queueId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"tasks\": [\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"assignedTo\": {\n        \"id\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"email\": \"<string>\",\n        \"roles\": [\n          \"REVIEWER\",\n          \"REVIEWER\"\n        ]\n      },\n      \"status\": \"OPEN\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"assignedTo\": {\n        \"id\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"email\": \"<string>\",\n        \"roles\": [\n          \"ADMINISTRATOR\",\n          \"REVIEWER\"\n        ]\n      },\n      \"status\": \"IN_PROGRESS\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Update task queue by ID",
+							"id": "03956210-cb75-42ba-9331-d44bce79ea4f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/task-queue/:queueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"task-queue",
+										":queueId"
+									],
+									"variable": [
+										{
+											"key": "queueId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "6fd52c6b-0ed0-446c-a0f2-883e070ad9f5",
+									"name": "Successfully updated task queue",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/task-queue/:queueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"task-queue",
+												":queueId"
+											],
+											"variable": [
+												{
+													"key": "queueId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"tasks\": [\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"assignedTo\": {\n        \"id\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"email\": \"<string>\",\n        \"roles\": [\n          \"REVIEWER\",\n          \"REVIEWER\"\n        ]\n      },\n      \"status\": \"OPEN\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"assignedTo\": {\n        \"id\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"email\": \"<string>\",\n        \"roles\": [\n          \"ADMINISTRATOR\",\n          \"REVIEWER\"\n        ]\n      },\n      \"status\": \"IN_PROGRESS\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete task queue by ID",
+							"id": "37f7b998-0c5b-4e99-a7bd-b84199357538",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/task-queue/:queueId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"task-queue",
+										":queueId"
+									],
+									"variable": [
+										{
+											"key": "queueId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "a9381556-0d5c-465b-a40f-368288084eab",
+									"name": "Successfully deleted task queue",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/task-queue/:queueId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"task-queue",
+												":queueId"
+											],
+											"variable": [
+												{
+													"key": "queueId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": []
+								}
+							]
+						}
+					],
+					"id": "aa244e9b-c794-44f0-819e-a91e31cc03fc"
+				},
+				{
+					"name": "Get all task queues",
+					"id": "a9bc27d4-f2b9-4b42-ad15-e6f927476b2e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/task-queue",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"task-queue"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "044e1690-959f-4a73-aa46-5651db41cd47",
+							"name": "Successfully retrieved task queues",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/task-queue",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"task-queue"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"tasks\": [\n      {\n        \"id\": \"<integer>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"assignedTo\": {\n          \"id\": \"<integer>\",\n          \"username\": \"<string>\",\n          \"email\": \"<string>\",\n          \"roles\": [\n            \"REVIEWER\",\n            \"CONTRIBUTOR\"\n          ]\n        },\n        \"status\": \"COMPLETED\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"assignedTo\": {\n          \"id\": \"<integer>\",\n          \"username\": \"<string>\",\n          \"email\": \"<string>\",\n          \"roles\": [\n            \"ADMINISTRATOR\",\n            \"REVIEWER\"\n          ]\n        },\n        \"status\": \"COMPLETED\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      }\n    ]\n  },\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"tasks\": [\n      {\n        \"id\": \"<integer>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"assignedTo\": {\n          \"id\": \"<integer>\",\n          \"username\": \"<string>\",\n          \"email\": \"<string>\",\n          \"roles\": [\n            \"ADMINISTRATOR\",\n            \"ADMINISTRATOR\"\n          ]\n        },\n        \"status\": \"IN_PROGRESS\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"assignedTo\": {\n          \"id\": \"<integer>\",\n          \"username\": \"<string>\",\n          \"email\": \"<string>\",\n          \"roles\": [\n            \"REVIEWER\",\n            \"ADMINISTRATOR\"\n          ]\n        },\n        \"status\": \"COMPLETED\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      }\n    ]\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create new task queue",
+					"id": "a32b4a39-8e13-4b90-b673-8fd3a46d6c09",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"<string>\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/task-queue",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"task-queue"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "4ca4a891-1c43-45a8-bc6a-957bbead7a7c",
+							"name": "Successfully created task queue",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/task-queue",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"task-queue"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"tasks\": [\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"assignedTo\": {\n        \"id\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"email\": \"<string>\",\n        \"roles\": [\n          \"REVIEWER\",\n          \"REVIEWER\"\n        ]\n      },\n      \"status\": \"OPEN\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"assignedTo\": {\n        \"id\": \"<integer>\",\n        \"username\": \"<string>\",\n        \"email\": \"<string>\",\n        \"roles\": [\n          \"ADMINISTRATOR\",\n          \"REVIEWER\"\n        ]\n      },\n      \"status\": \"IN_PROGRESS\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			],
+			"id": "3d84477d-3f13-483c-bfe8-df90e0754146"
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "{userId}",
+					"item": [
+						{
+							"name": "Get user by ID",
+							"id": "5ac655fc-874e-4630-99c3-5d2391bad498",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "83110a42-aa0d-48c2-93db-d8cb76b3c23e",
+									"name": "Successfully retrieved user",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"username\": \"<string>\",\n  \"email\": \"<string>\",\n  \"roles\": [\n    \"CONTRIBUTOR\",\n    \"ADMINISTRATOR\"\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Update user by ID",
+							"id": "2d90ec49-f89a-4e63-abab-4deceb6e01d4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"roles\": [\n    \"CONTRIBUTOR\",\n    \"REVIEWER\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "28168348-592d-4626-a5ac-fa9c784383f7",
+									"name": "Successfully updated user",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"username\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"roles\": [\n    \"CONTRIBUTOR\",\n    \"REVIEWER\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<integer>\",\n  \"username\": \"<string>\",\n  \"email\": \"<string>\",\n  \"roles\": [\n    \"CONTRIBUTOR\",\n    \"ADMINISTRATOR\"\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete user by ID",
+							"id": "d5244058-c3e4-40db-95c9-6e969408eb54",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/users/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "aefe8851-c67c-4f72-80f4-1f87b0bf283d",
+									"name": "Successfully deleted user",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": []
+								}
+							]
+						}
+					],
+					"id": "2243be45-1d99-499e-b8fa-62a67a2cea8e"
+				},
+				{
+					"name": "Get all users",
+					"id": "e8cb6f6d-c84f-47b9-9549-3a47e8d5178e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "0879c826-4024-444e-acc1-4fac0436a1d7",
+							"name": "Successfully retrieved users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\",\n    \"roles\": [\n      \"CONTRIBUTOR\",\n      \"REVIEWER\"\n    ]\n  },\n  {\n    \"id\": \"<integer>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\",\n    \"roles\": [\n      \"ADMINISTRATOR\",\n      \"ADMINISTRATOR\"\n    ]\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create new user",
+					"id": "f2ff24ac-7a99-4c84-b180-4c20c048cb83",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"roles\": [\n    \"CONTRIBUTOR\",\n    \"REVIEWER\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "f7402f1a-16c4-4ad1-a8aa-d692fafc9801",
+							"name": "Successfully created user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"<string>\",\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"roles\": [\n    \"CONTRIBUTOR\",\n    \"REVIEWER\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"<integer>\",\n  \"username\": \"<string>\",\n  \"email\": \"<string>\",\n  \"roles\": [\n    \"CONTRIBUTOR\",\n    \"ADMINISTRATOR\"\n  ]\n}"
+						}
+					]
+				}
+			],
+			"id": "7b68765b-a39d-4da6-be04-ccd74c9e75c8"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ecaa881a-2622-4da4-b609-bba2dcb40b64",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a7662867-69a1-40cd-869e-4a269d87795e",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "f387f9ae-1c1b-4646-9a40-4ec4473b7e34",
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}

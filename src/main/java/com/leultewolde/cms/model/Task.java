@@ -35,14 +35,11 @@ public class Task {
     private List<PublishingPlatform> targetPlatforms;
 
     @ManyToOne
-    @JoinColumn(name = "assigned_to")
+    @JoinColumn(name = "user_id", referencedColumnName = "userId")
     private User assignedTo;
 
     @OneToMany(mappedBy = "belongsTo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Content> contents;
 
-    @ManyToOne
-    @JoinColumn(name = "task_queue_id")
-    private TaskQueue taskQueue;
 }
 

@@ -15,6 +15,8 @@ public interface TaskService {
 
     Optional<TaskResponseDTO> getTaskById(Integer taskId);
 
+    List<TaskResponseDTO> getTasksByUsername(String username);
+
     List<TaskResponseDTO> getAllTasks();
 }
 

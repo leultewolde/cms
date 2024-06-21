@@ -13,6 +13,4 @@ public class ReviewRequestDTO {
     private ReviewStatus status;
     private Integer reviewedByUserId;
     private Integer contentId;
-
-    // Getters and Setters
 }
