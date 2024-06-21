@@ -1,9 +1,6 @@
 package com.leultewolde.cms.controller;
 
-import com.leultewolde.cms.dto.request.TaskRequestDTO;
 import com.leultewolde.cms.dto.request.UserRequestDTO;
-import com.leultewolde.cms.dto.response.TaskQueueResponseDTO;
-import com.leultewolde.cms.dto.response.TaskResponseDTO;
 import com.leultewolde.cms.dto.response.UserResponseDTO;
 import com.leultewolde.cms.service.UserService;
 import lombok.RequiredArgsConstructor;

@@ -4,6 +4,7 @@ import com.leultewolde.cms.config.JwtService;
 import com.leultewolde.cms.dto.request.AuthenticationRequestDTO;
 import com.leultewolde.cms.dto.request.RegisterRequestDTO;
 import com.leultewolde.cms.dto.response.AuthenticationResponseDTO;
+import com.leultewolde.cms.mapper.UserMapper;
 import com.leultewolde.cms.model.User;
 import com.leultewolde.cms.repository.UserRepository;
 import com.leultewolde.cms.service.AuthenticationService;
@@ -14,6 +15,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
@@ -23,6 +26,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final AuthenticationManager authenticationManager;
     private final PasswordEncoder passwordEncoder;
     private final UserDetailsService userDetailsService;
+    private final UserMapper userMapper;
 
     @Override
     public AuthenticationResponseDTO register(RegisterRequestDTO requestDTO) {
@@ -37,9 +41,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         // Save user
         User savedUser = userRepository.save(user);
         //Generate a token
+
         String token = jwtService.generateToken(savedUser);
 
-        return new AuthenticationResponseDTO(token);
+        return new AuthenticationResponseDTO(token, userMapper.toDTO(savedUser));
     }
 
     @Override
@@ -52,7 +57,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         var user = userDetailsService.loadUserByUsername(requestDTO.getUsername());
 
         String token = jwtService.generateToken(user);
-
-        return new AuthenticationResponseDTO(token);
+        User loggedInUser = new User();
+        Optional<User> loggedInUserOp = userRepository.findUserByUsername(user.getUsername());
+        if (loggedInUserOp.isPresent()) {
+            loggedInUser = loggedInUserOp.get();
+        }
+        return new AuthenticationResponseDTO(token, userMapper.toDTO(loggedInUser));
     }
 }

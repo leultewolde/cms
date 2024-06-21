@@ -34,7 +34,7 @@ class UserControllerTest {
     @Test
     @WithMockUser
     void createUser() throws Exception {
-        UserResponseDTO newUser = new UserResponseDTO(1, "leultewolde", "leultewolde@email.com", Role.ADMINISTRATOR);
+        UserResponseDTO newUser = new UserResponseDTO(1, "leultewolde", Role.ADMINISTRATOR);
         Mockito.when(userService.createUser(Mockito.any(UserRequestDTO.class))).thenReturn(newUser);
 
         mockMvc.perform(
@@ -51,7 +51,7 @@ class UserControllerTest {
 
     @Test
     void updateUser() throws Exception {
-        UserResponseDTO updatedUserResponse = new UserResponseDTO(1, "leultewolde", "leultewolde@email.com", Role.ADMINISTRATOR);
+        UserResponseDTO updatedUserResponse = new UserResponseDTO(1, "leultewolde", Role.ADMINISTRATOR);
         UserRequestDTO updatedUser = new UserRequestDTO("leultewolde", "pass1234", "leultewolde@email.com", Role.ADMINISTRATOR);
 
         Mockito.when(userService.updateUser("leultewolde", updatedUser)).thenReturn(Optional.of(updatedUserResponse));
@@ -77,7 +77,7 @@ class UserControllerTest {
 
     @Test
     void getUserByUsername() throws Exception {
-        UserResponseDTO foundUser = new UserResponseDTO(1, "leultewolde", "leultewolde@email.com", Role.ADMINISTRATOR);
+        UserResponseDTO foundUser = new UserResponseDTO(1, "leultewolde", Role.ADMINISTRATOR);
         Mockito.when(userService.getUserByUsername("leultewolde")).thenReturn(Optional.of(foundUser));
 
         mockMvc.perform(MockMvcRequestBuilders.get("/users/leultewolde"))
@@ -88,9 +88,9 @@ class UserControllerTest {
     @Test
     void getAllUsers() throws Exception {
         List<UserResponseDTO> foundUsers = List.of(
-                new UserResponseDTO(1, "leultewolde", "leultewolde@email.com", Role.ADMINISTRATOR),
-                new UserResponseDTO(2, "test1", "test1@email.com", Role.CONTRIBUTOR),
-                new UserResponseDTO(3, "test2", "test2@email.com", Role.REVIEWER)
+                new UserResponseDTO(1, "leultewolde", Role.ADMINISTRATOR),
+                new UserResponseDTO(2, "test1", Role.CONTRIBUTOR),
+                new UserResponseDTO(3, "test2", Role.REVIEWER)
         );
         Mockito.when(userService.getAllUsers()).thenReturn(foundUsers);
 

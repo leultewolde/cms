@@ -18,5 +18,5 @@ public class TaskResponseDTO {
     private LocalDate deadline;
     private TaskStatus status;
     private List<PublishingPlatformResponseDTO> targetPlatforms;
-    private Integer assignedToUserId;
+    private UserResponseDTO assignedTo;
 }

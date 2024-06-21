@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PublishingPlatformRequestDTO {
     private String platformName;
-    private String APIIntegrationDetails;
+    private String api_integration_details;
 }
