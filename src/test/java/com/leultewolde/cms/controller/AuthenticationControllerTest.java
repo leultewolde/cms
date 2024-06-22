@@ -70,7 +70,8 @@ class AuthenticationControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new Gson().toJson(requestDTO))
-                ).andDo(MockMvcResultHandlers.print())
+                )
+//                .andDo(MockMvcResultHandlers.print())
                 .andExpect(
                         MockMvcResultMatchers.status().isOk()
                 );
@@ -86,7 +87,8 @@ class AuthenticationControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/auth/authenticate")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new Gson().toJson(requestDTO))
-                ).andDo(MockMvcResultHandlers.print())
+                )
+//                .andDo(MockMvcResultHandlers.print())
                 .andExpect(
                         MockMvcResultMatchers.status().isOk()
                 );
