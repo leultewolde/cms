@@ -27,15 +27,18 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
-    - name: Build and push Docker images
+    - name: Build Docker image
       run: |
-        docker-compose -f ${{ secrets.DOCKER_COMPOSE_PATH }} build
-        docker-compose -f ${{ secrets.DOCKER_COMPOSE_PATH }} push
+        docker-compose -f docker-compose.yml build
+
+    - name: Push Docker image
+      run: |
+        docker-compose -f docker-compose.yml push
 
     - name: Deploy to Google Cloud Run
       run: |
-        gcloud run deploy myapp \
-          --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/myapp:latest \
+        gcloud run deploy cmsapp \
+          --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/cmsapp:latest \
           --platform managed \
           --region us-central1 \
           --allow-unauthenticated \
