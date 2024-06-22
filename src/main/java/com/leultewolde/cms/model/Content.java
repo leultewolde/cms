@@ -19,7 +19,6 @@ public class Content {
 
     private String type;
     private String data;
-    private String version;
 
     @Enumerated(EnumType.STRING)
     private ContentStatus status;

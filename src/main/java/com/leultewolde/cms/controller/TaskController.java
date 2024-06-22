@@ -52,7 +52,7 @@ public class TaskController {
     }
 
     @GetMapping("user/{username}")
-    public ResponseEntity<List<TaskResponseDTO>> getAllTasksByUSer(@PathVariable String username) {
+    public ResponseEntity<List<TaskResponseDTO>> getAllTasksByUser(@PathVariable String username) {
         List<TaskResponseDTO> tasks = taskService.getTasksByUsername(username);
         return ResponseEntity.ok(tasks);
     }
