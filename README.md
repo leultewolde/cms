@@ -5,10 +5,9 @@
 The project aims to solve the problem of inefficient content creation, organization, 
 collaboration, and publishing. Organizations and individuals often struggle due to the lack of a centralized 
 platform, leading to scattered content, inconsistent formatting, and difficulties with collaboration. 
-This results in delays, miscommunication, and poor content quality. This project proposes building a 
-comprehensive content management system (CMS) to address these issues.
+This results in delays, miscommunication, and poor content quality. This project proposes building a content management system (CMS) to address these issues.
 ### Description
-The CMS will provide users with a single platform to efficiently create, organize, collaborate on, and publish digital content, like pictures, text, and videos. It will streamline the content creation process, enhance teamwork, and improve version control, ultimately leading to higher-quality content and a more efficient workflow.
+The CMS will provide users with a single platform to efficiently create, organize, collaborate on, and publish digital content, like pictures, text, and videos. 
 
 - The system will support multiple user roles: administrators, reviewers, and contributors.
     - Administrators can manage user roles, give out tasks, and publish content to various platforms (YouTube, TikTok, Instagram, Twitter).
