@@ -51,5 +51,5 @@ The CMS will provide users with a single platform to efficiently create, organiz
 
 ### Diagrams
 ![class-diagram.png](screenshots/class-diagram.png)
-![entity-rel.png](screenshots/entity-rel.png)
+![er.png](screenshots/er.png)
 ![arch.png](screenshots/arch.png)
