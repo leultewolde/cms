@@ -16,7 +16,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8082:8082"
     environment:
       JWT_SECRET_KEY: 9e7390de9f21809c2a824bd85df9c0505f78cf85741a79e30286e600349b36317a670522b13a3f25f21af8cb261a83178c6f1bc94e3228ce403caf1a1045372b
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/cms_dev
