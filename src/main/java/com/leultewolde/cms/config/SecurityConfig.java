@@ -50,7 +50,8 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true);
-        configuration.addAllowedOrigin("http://localhost:3000"); // Replace with your client URL
+        configuration.addAllowedOrigin("http://localhost:3000");
+        configuration.addAllowedOrigin("https://nextjs-app-7rcvdwc4nq-uc.a.run.app");
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
 
